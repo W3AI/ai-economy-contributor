@@ -1,11 +1,11 @@
 <script>
-  import meetups from "./Meetups/meetups-store.js";
+  import posts from "./Posts/posts-store.js";
   import Header from "./UI/Header.svelte";
-  import MeetupGrid from "./Meetups/MeetupGrid.svelte";
+  import PostGrid from "./Posts/PostGrid.svelte";
   import TextInput from "./UI/TextInput.svelte";
   import Button from "./UI/Button.svelte";
-  import EditMeetup from "./Meetups/EditMeetup.svelte";
-  import MeetupDetail from "./Meetups/MeetupDetail.svelte";
+  import EditPost from "./Posts/EditPost.svelte";
+  import PostDetail from "./Posts/PostDetail.svelte";
   import LoadingSpinner from "./UI/LoadingSpinner.svelte";
   import Error from "./UI/Error.svelte";
 
@@ -16,23 +16,23 @@
   let isLoading = true;
   let error;
 
-  fetch("https://ai-economy.firebaseio.com/meetups.json")
+  fetch("https://ai-economy.firebaseio.com/posts.json")
     .then(res => {
       if (!res.ok) {
-        throw new error("Fetching meetups failed, please try again later!");
+        throw new error("Fetching posts failed, please try again later!");
       }
       return res.json();
     })
     .then(data => {
-      const loadedMeetups = [];
+      const loadedPosts = [];
       for (const key in data) {
-        loadedMeetups.push({
+        loadedPosts.push({
           ...data[key],
           id: key
         });
       }
       isLoading = false;
-      meetups.setMeetups(loadedMeetups.reverse());
+      posts.setPosts(loadedPosts.reverse());
     })
     .catch(err => {
       error = err;
@@ -40,7 +40,7 @@
       console.log(err);
     });
 
-  function savedMeetup(event) {
+  function savedPost(event) {
     editMode = null;
     editedId = null;
   }
@@ -85,13 +85,13 @@
 <main>
   {#if page === 'overview'}
     {#if editMode === 'edit'}
-      <EditMeetup id={editedId} on:save={savedMeetup} on:cancel={cancelEdit} />
+      <EditPost id={editedId} on:save={savedPost} on:cancel={cancelEdit} />
     {/if}
     {#if isLoading}
       <LoadingSpinner />
     {:else}
-      <MeetupGrid
-        meetups={$meetups}
+      <PostGrid
+        posts={$posts}
         on:showdetails={showDetails}
         on:edit={startEdit}
         on:add={() => {
@@ -99,6 +99,6 @@
         }} />
     {/if}
   {:else}
-    <MeetupDetail id={pageData.id} on:close={closeDetails} />
+    <PostDetail id={pageData.id} on:close={closeDetails} />
   {/if}
 </main>

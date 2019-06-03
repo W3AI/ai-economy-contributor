@@ -1,5 +1,5 @@
 <script>
-  import meetups from "./meetups-store.js";
+  import posts from "./posts-store.js";
   import { createEventDispatcher } from "svelte";
 
   import TextInput from "../UI/TextInput.svelte";
@@ -18,14 +18,14 @@
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg/800px-McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg";
 
   if (id) {
-    const unsubscribe = meetups.subscribe(items => {
-      const selectedMeetup = items.find(i => i.id === id);
-      title = selectedMeetup.title;
-      subtitle = selectedMeetup.subtitle;
-      address = selectedMeetup.address;
-      email = selectedMeetup.contactEmail;
-      description = selectedMeetup.description;
-      imageUrl = selectedMeetup.imageUrl;
+    const unsubscribe = posts.subscribe(items => {
+      const selectedPost = items.find(i => i.id === id);
+      title = selectedPost.title;
+      subtitle = selectedPost.subtitle;
+      address = selectedPost.address;
+      email = selectedPost.contactEmail;
+      description = selectedPost.description;
+      imageUrl = selectedPost.imageUrl;
     });
 
     unsubscribe();
@@ -48,7 +48,7 @@
     emailValid;
 
   function submitForm() {
-    const meetupData = {
+    const postData = {
       title: title,
       subtitle: subtitle,
       description: description,
@@ -57,26 +57,26 @@
       address: address
     };
 
-    // meetups.push(newMeetup);    // DOES NOT WORK IN SVELTE
+    // posts.push(newPost);    // DOES NOT WORK IN SVELTE
     if (id) {
-      fetch(`https://ai-economy.firebaseio.com/meetups/${id}.json`, {
+      fetch(`https://ai-economy.firebaseio.com/posts/${id}.json`, {
         method: "PATCH",
-        body: JSON.stringify(meetupData),
+        body: JSON.stringify(postData),
         headers: { "Content-Type": "application/json" }
       })
         .then(res => {
           if (!res.ok) {
             throw new Error("An error occurred, please try again!");
           }
-          meetups.updateMeetup(id, meetupData); // update in local store after db
+          posts.updatePost(id, postData); // update in local store after db
         })
         .catch(err => {
           console.log();
         });
     } else {
-      fetch("https://ai-economy.firebaseio.com/meetups.json", {
+      fetch("https://ai-economy.firebaseio.com/posts.json", {
         method: "POST",
-        body: JSON.stringify({ ...meetupData, isFavorite: false }),
+        body: JSON.stringify({ ...postData, isFavorite: false }),
         headers: { "Content-Type": "application/json" }
       })
         .then(res => {
@@ -86,8 +86,8 @@
           return res.json();
         })
         .then(data => {
-          meetups.addMeetup({
-            ...meetupData,
+          posts.addPost({
+            ...postData,
             isFavorite: false,
             id: data.name
           });
@@ -100,15 +100,15 @@
     dispatch("save");
   }
 
-  function deleteMeetup() {
-    fetch(`https://ai-economy.firebaseio.com/meetups/${id}.json`, {
+  function deletePost() {
+    fetch(`https://ai-economy.firebaseio.com/posts/${id}.json`, {
       method: "DELETE"
     })
       .then(res => {
         if (!res.ok) {
           throw new Error("An error occurred, please try again!");
         }
-        meetups.removeMeetup(id);
+        posts.removePost(id);
       })
       .catch(err => console.log(err));
     dispatch("save");
@@ -178,7 +178,7 @@
       Save
     </Button>
     {#if id}
-      <Button type="button" on:click={deleteMeetup}>Delete</Button>
+      <Button type="button" on:click={deletePost}>Delete</Button>
     {/if}
   </div>
 </Modal>

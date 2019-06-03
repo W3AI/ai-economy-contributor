@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import meetups from "./meetups-store.js";
+  import posts from "./posts-store.js";
   import Button from "../UI/Button.svelte";
   import Badge from "../UI/Badge.svelte";
   import LoadingSpinner from "../UI/LoadingSpinner.svelte";
@@ -20,7 +20,7 @@
 
   function toggleFavorite() {
     isLoading = true;
-    fetch(`https://ai-economy.firebaseio.com/meetups/${id}.json`, {
+    fetch(`https://ai-economy.firebaseio.com/posts/${id}.json`, {
       method: "PATCH",
       body: JSON.stringify({ isFavorite: !isFav }),
       headers: { "Content-Type": "application/json" }
@@ -30,7 +30,7 @@
           throw new Error("An error occurred, please try again!");
         }
         isLoading = false;
-        meetups.toggleFavorite(id);
+        posts.toggleFavorite(id);
       })
       .catch(err => {
         isLoading = false;

@@ -2,17 +2,17 @@
   import { createEventDispatcher } from "svelte";
   import { scale } from "svelte/transition";
   import { flip } from "svelte/animate";
-  import MeetupItem from "./MeetupItem.svelte";
-  import MeetupFilter from "./MeetupFilter.svelte";
+  import PostItem from "./PostItem.svelte";
+  import PostFilter from "./PostFilter.svelte";
   import Button from "../UI/Button.svelte";
 
-  export let meetups;
+  export let posts;
 
   const dispatch = createEventDispatcher();
 
   let favsOnly = false;
 
-  $: filteredMeetups = favsOnly ? meetups.filter(m => m.isFavorite) : meetups;
+  $: filteredPosts = favsOnly ? posts.filter(m => m.isFavorite) : posts;
 
   function setFilter(event) {
     favsOnly = event.detail === 1;
@@ -20,58 +20,58 @@
 </script>
 
 <style>
-  #meetups {
+  #posts {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
   }
 
-  #meetup-controls {
+  #post-controls {
     margin: 1rem;
     display: flex;
     justify-content: space-between;
   }
 
-  #no-meetups {
+  #no-posts {
     margin: 1rem;
   }
 
   @media (max-width: 330px) {
-    #meetup-controls {
+    #post-controls {
       margin: .7rem;
     }
   }
 
   @media (min-width: 768px) {
-    #meetups {
+    #posts {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
 
-<section id="meetup-controls">
-  <MeetupFilter on:select={setFilter} />
+<section id="post-controls">
+  <PostFilter on:select={setFilter} />
 
   <Button on:click={() => dispatch('add')}>+Friends</Button>
   <Button on:click={() => dispatch('add')}>+Service</Button>
 
 </section>
-{#if filteredMeetups.length === 0}
-  <p id="no-meetups">No meetups found, you can start adding some.</p>
+{#if filteredPosts.length === 0}
+  <p id="no-posts">No posts found, you can start adding some.</p>
 {/if}
-<section id="meetups">
-  {#each filteredMeetups as meetup (meetup.id)}
+<section id="posts">
+  {#each filteredPosts as post (post.id)}
     <div transition:scale animate:flip={{ duration: 300 }}>
-      <MeetupItem
-        id={meetup.id}
-        title={meetup.title}
-        subtitle={meetup.subtitle}
-        description={meetup.description}
-        imageUrl={meetup.imageUrl}
-        email={meetup.contactEmail}
-        address={meetup.address}
-        isFav={meetup.isFavorite}
+      <PostItem
+        id={post.id}
+        title={post.title}
+        subtitle={post.subtitle}
+        description={post.description}
+        imageUrl={post.imageUrl}
+        email={post.contactEmail}
+        address={post.address}
+        isFav={post.isFavorite}
         on:showdetails
         on:edit />
     </div>

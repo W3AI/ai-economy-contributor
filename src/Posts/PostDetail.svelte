@@ -1,14 +1,14 @@
 <script>
   import { onDestroy, createEventDispatcher } from "svelte";
-  import meetups from "./meetups-store.js";
+  import posts from "./posts-store.js";
   import Button from "../UI/Button.svelte";
 
   export let id;
 
-  let selectedMeetup;
+  let selectedPost;
 
-  const unsubscribe = meetups.subscribe(items => {
-    selectedMeetup = items.find(i => i.id === id);
+  const unsubscribe = posts.subscribe(items => {
+    selectedPost = items.find(i => i.id === id);
   });
 
   const dispatch = createEventDispatcher();
@@ -62,13 +62,13 @@
 
 <section>
   <div class="image">
-    <img src={selectedMeetup.imageUrl} alt={selectedMeetup.title} />
+    <img src={selectedPost.imageUrl} alt={selectedPost.title} />
   </div>
   <div class="content">
-    <h1>{selectedMeetup.title}</h1>
-    <h2>{selectedMeetup.subtitle} - {selectedMeetup.address}</h2>
-    <p>{selectedMeetup.description}</p>
-    <Button href="mailto:{selectedMeetup.contactEmail}">Contact</Button>
+    <h1>{selectedPost.title}</h1>
+    <h2>{selectedPost.subtitle} - {selectedPost.address}</h2>
+    <p>{selectedPost.description}</p>
+    <Button href="mailto:{selectedPost.contactEmail}">Contact</Button>
     <Button type="button" mode="outline" on:click={() => dispatch('close')}>
       Close
     </Button>
