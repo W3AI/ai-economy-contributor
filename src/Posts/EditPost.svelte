@@ -9,11 +9,11 @@
 
   export let id = null;
 
-  let title = "eg: Servant Lead";
-  let subtitle = "Team Coordinator";
-  let contribution = "12 Servants Ave, New Haven";
-  let email = "servant.team.60@w3ai.net";
-  let description = "Help teams plan projects and schedule services.";
+  let title = "eg: Commit Contribution";
+  let subtitle = "git commit command";
+  let contribution = "git commit -m '<contribution>'";
+  let email = "agile.team.366@w3ai.org";
+  let description = "Commit contributions to the project.";
   let imageUrl =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg/800px-McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg";
 
