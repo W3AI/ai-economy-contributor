@@ -100,7 +100,7 @@
     h1 {
       font-size: 1rem;
     }
-        h2 {
+    h2 {
       font-size: 0.9rem;
     }
 
@@ -119,7 +119,10 @@
       {/if}
     </h1>
     <h2>{subtitle}</h2>
-    <p>iDNA: {address}</p>
+    <p>
+      <img src="iDNA-icon.png" alt="idna" />
+      {address}
+    </p>
   </header>
   <div class="image">
     <img src={imageUrl} alt={title} />
