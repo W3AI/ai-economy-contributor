@@ -10,7 +10,7 @@
   export let subtitle;
   export let imageUrl;
   export let description;
-  export let address;
+  export let contribution;
   export let email;
   export let isFav;
 
@@ -121,7 +121,7 @@
     <h2>{subtitle}</h2>
     <p>
       <img src="iDNA-icon.png" alt="idna" />
-      {address}
+      {contribution}
     </p>
   </header>
   <div class="image">

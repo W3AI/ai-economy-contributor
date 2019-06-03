@@ -70,7 +70,7 @@
         description={post.description}
         imageUrl={post.imageUrl}
         email={post.contactEmail}
-        address={post.address}
+        contribution={post.contribution}
         isFav={post.isFavorite}
         on:showdetails
         on:edit />

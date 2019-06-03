@@ -11,7 +11,7 @@
 
   let title = "eg: Servant Lead";
   let subtitle = "Team Coordinator";
-  let address = "12 Servants Ave, New Haven";
+  let contribution = "12 Servants Ave, New Haven";
   let email = "servant.team.60@w3ai.net";
   let description = "Help teams plan projects and schedule services.";
   let imageUrl =
@@ -22,7 +22,7 @@
       const selectedPost = items.find(i => i.id === id);
       title = selectedPost.title;
       subtitle = selectedPost.subtitle;
-      address = selectedPost.address;
+      contribution = selectedPost.contribution;
       email = selectedPost.contactEmail;
       description = selectedPost.description;
       imageUrl = selectedPost.imageUrl;
@@ -35,14 +35,14 @@
 
   $: titleValid = !isEmpty(title);
   $: subtitleValid = !isEmpty(subtitle);
-  $: addressValid = !isEmpty(address);
+  $: contributionValid = !isEmpty(contribution);
   $: descriptionValid = !isEmpty(description);
   $: imageUrlValid = !isEmpty(imageUrl);
   $: emailValid = isValidEmail(email);
   $: formIsValid =
     titleValid &&
     subtitleValid &&
-    addressValid &&
+    contributionValid &&
     descriptionValid &&
     imageUrlValid &&
     emailValid;
@@ -54,7 +54,7 @@
       description: description,
       imageUrl: imageUrl,
       contactEmail: email,
-      address: address
+      contribution: contribution
     };
 
     // posts.push(newPost);    // DOES NOT WORK IN SVELTE
@@ -142,12 +142,12 @@
       value={subtitle}
       on:input={event => (subtitle = event.target.value)} />
     <TextInput
-      id="address"
-      label="Address"
-      valid={addressValid}
-      validityMessage="Please enter a valid address."
-      value={address}
-      on:input={event => (address = event.target.value)} />
+      id="contribution"
+      label="Contribution"
+      valid={contributionValid}
+      validityMessage="Please enter a valid contribution."
+      value={contribution}
+      on:input={event => (contribution = event.target.value)} />
     <TextInput
       id="imageUrl"
       label="Image URL"
@@ -160,7 +160,7 @@
       label="E-Mail"
       type="email"
       valid={emailValid}
-      validityMessage="Please enter a valid email address."
+      validityMessage="Please enter a valid email contribution."
       value={email}
       on:input={event => (email = event.target.value)} />
     <TextInput
