@@ -119,7 +119,7 @@
       {/if}
     </h1>
     <h2>{subtitle}</h2>
-    <p>{address}</p>
+    <p>iDNA: {address}</p>
   </header>
   <div class="image">
     <img src={imageUrl} alt={title} />
