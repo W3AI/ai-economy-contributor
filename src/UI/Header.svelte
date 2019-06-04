@@ -30,6 +30,6 @@
 </style>
 
 <header>
-  <h1>innovation teams</h1>
-  <p>join 10 million innovators on your birthday! or any year day!</p>
+  <h1>commits</h1>
+  <p>reusable</p>
 </header>
