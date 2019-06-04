@@ -15,7 +15,7 @@
   let email = "agile.team.366@w3ai.org";
   let description = "Commit contributions to the project.";
   let imageUrl =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg/800px-McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg";
+    "https://tcp1pnet.files.wordpress.com/2019/05/2000-contributions.png";
 
   if (id) {
     const unsubscribe = posts.subscribe(items => {

@@ -53,8 +53,8 @@
 <section id="post-controls">
   <PostFilter on:select={setFilter} />
 
-  <Button on:click={() => dispatch('add')}>+Friends</Button>
-  <Button on:click={() => dispatch('add')}>+Service</Button>
+  <Button on:click={() => dispatch('add')}>Friends</Button>
+  <Button on:click={() => dispatch('add')}>Contribute</Button>
 
 </section>
 {#if filteredPosts.length === 0}
