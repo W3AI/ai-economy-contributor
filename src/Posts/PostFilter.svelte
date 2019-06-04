@@ -49,7 +49,7 @@
         selectedButton = 0;
       dispatch('select', 0);
     }}>
-    All
+    $
   </button>
   <button
     type="button"

@@ -22,7 +22,7 @@
   }
 
   p {
-    font-size: 0.59rem;
+    font-size: 0.64rem;
     color: white;
     font-family: "Roboto Slab", sans-serif;
     margin: 0;
@@ -30,6 +30,6 @@
 </style>
 
 <header>
-  <h1>commits</h1>
-  <p>reusable</p>
+  <h1>commit</h1>
+  <p>realtime social economy</p>
 </header>
