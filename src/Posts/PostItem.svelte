@@ -107,6 +107,11 @@
     p {
       font-size: 0.8rem;
     }
+
+    code {
+        color: #01a129;
+        background-color: #333;
+    }
   }
 </style>
 
@@ -115,13 +120,12 @@
     <h1>
        {title}
       {#if isFav}
-        <Badge>FAVORITE</Badge>
+        <Badge>&#10084;</Badge>
       {/if}
     </h1>
     <h2>{subtitle}</h2>
     <p>
-      <img src="iDNA-icon.png" alt="idna" />
-      {contribution}
+      <code>{contribution}</code>
     </p>
   </header>
   <div class="image">
