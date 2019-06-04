@@ -96,6 +96,12 @@
     height: 4rem;
   }
 
+  code {
+    color: #01a129;
+    background-color: #eee;
+    padding: 0 0.5rem;
+  }
+
   @media (max-width: 375px) {
     h1 {
       font-size: 1rem;
@@ -107,11 +113,6 @@
     p {
       font-size: 0.8rem;
     }
-
-    code {
-        color: #01a129;
-        background-color: #333;
-    }
   }
 </style>
 
@@ -120,7 +121,7 @@
     <h1>
        {title}
       {#if isFav}
-        <Badge>&#10084;</Badge>
+        <Badge>❤</Badge>
       {/if}
     </h1>
     <h2>{subtitle}</h2>
