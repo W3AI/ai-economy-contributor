@@ -52,11 +52,11 @@
 
 <section id="post-controls">
 
-  <Button on:click={() => dispatch('add')}>Friends</Button>
+  <Button on:click={() => dispatch('add')}>friends</Button>
 
   <PostFilter on:select={setFilter} />
 
-  <Button on:click={() => dispatch('add')}>Contribute</Button>
+  <Button on:click={() => dispatch('add')}>commit</Button>
 
 </section>
 {#if filteredPosts.length === 0}
