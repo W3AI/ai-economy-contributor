@@ -30,6 +30,5 @@
 </style>
 
 <header>
-  <h1>commit</h1>
-  <p>realtime social economy</p>
+  <h1>contributor</h1>
 </header>
