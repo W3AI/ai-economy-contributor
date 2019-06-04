@@ -39,7 +39,7 @@
 
   @media (max-width: 330px) {
     #post-controls {
-      margin: .7rem;
+      margin: 0.7rem;
     }
   }
 
@@ -51,9 +51,11 @@
 </style>
 
 <section id="post-controls">
-  <PostFilter on:select={setFilter} />
 
   <Button on:click={() => dispatch('add')}>Friends</Button>
+
+  <PostFilter on:select={setFilter} />
+
   <Button on:click={() => dispatch('add')}>Contribute</Button>
 
 </section>
