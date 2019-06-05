@@ -136,7 +136,7 @@
       on:input={event => (title = event.target.value)} />
     <TextInput
       id="tags"
-      label="Subtitle"
+      label="Tags"
       valid={tagsValid}
       validityMessage="Please enter a valid tags."
       value={tags}
