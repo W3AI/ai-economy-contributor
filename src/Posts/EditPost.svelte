@@ -13,7 +13,7 @@
   let tags = "service, git, commit, change";
   let repoUrl = "https://github.com/W3AI/global-innovation-app";
   let creator = "agile.team.366@w3ai.org";
-  let content = "Commit contributions to the project.";
+  let content = "git commit -m '<message>'";
   let imageUrl =
     "https://tcp1pnet.files.wordpress.com/2019/05/2000-contributions.png";
 
