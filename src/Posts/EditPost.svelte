@@ -9,8 +9,8 @@
 
   export let id = null;
 
-  let title = "eg: Commit Contribution";
-  let tags = "git commit command";
+  let title = "eg: my contribution";
+  let tags = "service, git, commit, contribution, change";
   let contribution = "git commit -m '<contribution>'";
   let email = "agile.team.366@w3ai.org";
   let content = "Commit contributions to the project.";
