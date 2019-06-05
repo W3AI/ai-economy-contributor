@@ -86,6 +86,7 @@
           return res.json();
         })
         .then(data => {
+          // save in local posts-store - in browser
           posts.addPost({
             ...postData,
             isFavorite: false,
@@ -93,6 +94,21 @@
           });
         })
         .catch(err => {
+          console.log(err);
+        });
+
+      // Save to skills server
+      fetch("http://localhost:8080/feed/post", {
+        method: "POST",
+        body: JSON.stringify({ ...postData, isFavorite: false }),
+        headers: { "Content-Type": "application/json" }
+      }).then(res => {
+        if (!res.ok) {
+          throw new Error("Skills server error, please try again!");
+        }
+        return res.json();
+      })
+      .catch(err => {
           console.log(err);
         });
     }
