@@ -71,7 +71,7 @@
         tags={post.tags}
         content={post.content}
         imageUrl={post.imageUrl}
-        email={post.contactEmail}
+        creator={post.contactEmail}
         contribution={post.contribution}
         isFav={post.isFavorite}
         on:showdetails

@@ -9,10 +9,10 @@
 
   export let id = null;
 
-  let title = "eg: my contribution";
-  let tags = "service, git, commit, contribution, change";
+  let title = "eg: My contribution";
+  let tags = "service, git, commit, change";
   let contribution = "git commit -m '<contribution>'";
-  let email = "agile.team.366@w3ai.org";
+  let creator = "agile.team.366@w3ai.org";
   let content = "Commit contributions to the project.";
   let imageUrl =
     "https://tcp1pnet.files.wordpress.com/2019/05/2000-contributions.png";
@@ -23,7 +23,7 @@
       title = selectedPost.title;
       tags = selectedPost.tags;
       contribution = selectedPost.contribution;
-      email = selectedPost.contactEmail;
+      creator = selectedPost.contactEmail;
       content = selectedPost.content;
       imageUrl = selectedPost.imageUrl;
     });
@@ -38,14 +38,14 @@
   $: contributionValid = !isEmpty(contribution);
   $: contentValid = !isEmpty(content);
   $: imageUrlValid = !isEmpty(imageUrl);
-  $: emailValid = isValidEmail(email);
+  $: creatorValid = isValidEmail(creator);
   $: formIsValid =
     titleValid &&
     tagsValid &&
     contributionValid &&
     contentValid &&
     imageUrlValid &&
-    emailValid;
+    creatorValid;
 
   function submitForm() {
     const postData = {
@@ -53,7 +53,7 @@
       tags: tags,
       content: content,
       imageUrl: imageUrl,
-      contactEmail: email,
+      contactEmail: creator,
       contribution: contribution
     };
 
@@ -155,13 +155,13 @@
       value={imageUrl}
       on:input={event => (imageUrl = event.target.value)} />
     <TextInput
-      id="email"
-      label="E-Mail"
-      type="email"
-      valid={emailValid}
-      validityMessage="Please enter a valid email contribution."
-      value={email}
-      on:input={event => (email = event.target.value)} />
+      id="creator"
+      label="Creator email"
+      type="creator"
+      valid={creatorValid}
+      validityMessage="Please enter a valid creator contribution."
+      value={creator}
+      on:input={event => (creator = event.target.value)} />
     <TextInput
       id="content"
       label="Content"

@@ -11,7 +11,7 @@
   export let imageUrl;
   export let content;
   export let contribution;
-  export let email;
+  export let creator;
   export let isFav;
 
   let isLoading = false;
