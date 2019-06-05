@@ -67,7 +67,7 @@
   <div class="content">
     <h1>{selectedPost.title}</h1>
     <h2>{selectedPost.tags} - {selectedPost.contribution}</h2>
-    <p>{selectedPost.description}</p>
+    <p>{selectedPost.content}</p>
     <Button href="mailto:{selectedPost.contactEmail}">Contact</Button>
     <Button type="button" mode="outline" on:click={() => dispatch('close')}>
       Close

@@ -69,7 +69,7 @@
         id={post.id}
         title={post.title}
         tags={post.tags}
-        description={post.description}
+        content={post.content}
         imageUrl={post.imageUrl}
         email={post.contactEmail}
         contribution={post.contribution}

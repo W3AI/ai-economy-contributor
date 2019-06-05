@@ -13,7 +13,7 @@
   let tags = "git commit command";
   let contribution = "git commit -m '<contribution>'";
   let email = "agile.team.366@w3ai.org";
-  let description = "Commit contributions to the project.";
+  let content = "Commit contributions to the project.";
   let imageUrl =
     "https://tcp1pnet.files.wordpress.com/2019/05/2000-contributions.png";
 
@@ -24,7 +24,7 @@
       tags = selectedPost.tags;
       contribution = selectedPost.contribution;
       email = selectedPost.contactEmail;
-      description = selectedPost.description;
+      content = selectedPost.content;
       imageUrl = selectedPost.imageUrl;
     });
 
@@ -36,14 +36,14 @@
   $: titleValid = !isEmpty(title);
   $: tagsValid = !isEmpty(tags);
   $: contributionValid = !isEmpty(contribution);
-  $: descriptionValid = !isEmpty(description);
+  $: contentValid = !isEmpty(content);
   $: imageUrlValid = !isEmpty(imageUrl);
   $: emailValid = isValidEmail(email);
   $: formIsValid =
     titleValid &&
     tagsValid &&
     contributionValid &&
-    descriptionValid &&
+    contentValid &&
     imageUrlValid &&
     emailValid;
 
@@ -51,7 +51,7 @@
     const postData = {
       title: title,
       tags: tags,
-      description: description,
+      content: content,
       imageUrl: imageUrl,
       contactEmail: email,
       contribution: contribution
@@ -163,13 +163,13 @@
       value={email}
       on:input={event => (email = event.target.value)} />
     <TextInput
-      id="description"
-      label="Description"
+      id="content"
+      label="Content"
       controlType="textarea"
-      valid={descriptionValid}
-      validityMessage="Please enter a valid description."
-      value={description}
-      on:input={event => (description = event.target.value)} />
+      valid={contentValid}
+      validityMessage="Please enter a valid content."
+      value={content}
+      on:input={event => (content = event.target.value)} />
   </form>
   <div slot="footer">
     <Button type="button" mode="outline" on:click={cancel}>Cancel</Button>

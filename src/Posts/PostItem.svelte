@@ -9,7 +9,7 @@
   export let title;
   export let tags;
   export let imageUrl;
-  export let description;
+  export let content;
   export let contribution;
   export let email;
   export let isFav;
@@ -133,7 +133,7 @@
     <img src={imageUrl} alt={title} />
   </div>
   <div class="content">
-    <p>{description}</p>
+    <p>{content}</p>
   </div>
   <footer>
     <Button mode="outline" type="button" on:click={() => dispatch('edit', id)}>
