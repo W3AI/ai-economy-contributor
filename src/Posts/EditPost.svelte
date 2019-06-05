@@ -128,7 +128,7 @@
   <form on:submit|preventDefault={submitForm}>
     <TextInput
       id="title"
-      label="Title"
+      label="Message"
       valid={titleValid}
       validityMessage="Please enter a valid title."
       value={title}
