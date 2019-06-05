@@ -11,7 +11,7 @@
 
   let title = "eg: My contribution";
   let tags = "service, git, commit, change";
-  let repoUrl = "git commit -m '<contribution>'";
+  let repoUrl = "https://github.com/W3AI/global-innovation-app";
   let creator = "agile.team.366@w3ai.org";
   let content = "Commit contributions to the project.";
   let imageUrl =
