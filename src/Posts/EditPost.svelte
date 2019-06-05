@@ -10,7 +10,7 @@
   export let id = null;
 
   let title = "eg: Commit Contribution";
-  let subtitle = "git commit command";
+  let tags = "git commit command";
   let contribution = "git commit -m '<contribution>'";
   let email = "agile.team.366@w3ai.org";
   let description = "Commit contributions to the project.";
@@ -21,7 +21,7 @@
     const unsubscribe = posts.subscribe(items => {
       const selectedPost = items.find(i => i.id === id);
       title = selectedPost.title;
-      subtitle = selectedPost.subtitle;
+      tags = selectedPost.tags;
       contribution = selectedPost.contribution;
       email = selectedPost.contactEmail;
       description = selectedPost.description;
@@ -34,14 +34,14 @@
   const dispatch = createEventDispatcher();
 
   $: titleValid = !isEmpty(title);
-  $: subtitleValid = !isEmpty(subtitle);
+  $: tagsValid = !isEmpty(tags);
   $: contributionValid = !isEmpty(contribution);
   $: descriptionValid = !isEmpty(description);
   $: imageUrlValid = !isEmpty(imageUrl);
   $: emailValid = isValidEmail(email);
   $: formIsValid =
     titleValid &&
-    subtitleValid &&
+    tagsValid &&
     contributionValid &&
     descriptionValid &&
     imageUrlValid &&
@@ -50,7 +50,7 @@
   function submitForm() {
     const postData = {
       title: title,
-      subtitle: subtitle,
+      tags: tags,
       description: description,
       imageUrl: imageUrl,
       contactEmail: email,
@@ -135,12 +135,12 @@
       value={title}
       on:input={event => (title = event.target.value)} />
     <TextInput
-      id="subtitle"
+      id="tags"
       label="Subtitle"
-      valid={subtitleValid}
-      validityMessage="Please enter a valid subtitle."
-      value={subtitle}
-      on:input={event => (subtitle = event.target.value)} />
+      valid={tagsValid}
+      validityMessage="Please enter a valid tags."
+      value={tags}
+      on:input={event => (tags = event.target.value)} />
     <TextInput
       id="contribution"
       label="Contribution"

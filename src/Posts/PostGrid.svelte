@@ -68,7 +68,7 @@
       <PostItem
         id={post.id}
         title={post.title}
-        subtitle={post.subtitle}
+        tags={post.tags}
         description={post.description}
         imageUrl={post.imageUrl}
         email={post.contactEmail}

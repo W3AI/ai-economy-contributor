@@ -7,7 +7,7 @@
 
   export let id;
   export let title;
-  export let subtitle;
+  export let tags;
   export let imageUrl;
   export let description;
   export let contribution;
@@ -124,7 +124,7 @@
         <Badge>❤</Badge>
       {/if}
     </h1>
-    <h2>{subtitle}</h2>
+    <h2>{tags}</h2>
     <p>
       <code>{contribution}</code>
     </p>
