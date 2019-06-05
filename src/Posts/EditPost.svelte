@@ -11,7 +11,7 @@
 
   let title = "eg: My contribution";
   let tags = "service, git, commit, change";
-  let contribution = "git commit -m '<contribution>'";
+  let repoUrl = "git commit -m '<contribution>'";
   let creator = "agile.team.366@w3ai.org";
   let content = "Commit contributions to the project.";
   let imageUrl =
@@ -22,7 +22,7 @@
       const selectedPost = items.find(i => i.id === id);
       title = selectedPost.title;
       tags = selectedPost.tags;
-      contribution = selectedPost.contribution;
+      repoUrl = selectedPost.repoUrl;
       creator = selectedPost.contactEmail;
       content = selectedPost.content;
       imageUrl = selectedPost.imageUrl;
@@ -35,14 +35,14 @@
 
   $: titleValid = !isEmpty(title);
   $: tagsValid = !isEmpty(tags);
-  $: contributionValid = !isEmpty(contribution);
+  $: repoUrlValid = !isEmpty(repoUrl);
   $: contentValid = !isEmpty(content);
   $: imageUrlValid = !isEmpty(imageUrl);
   $: creatorValid = isValidEmail(creator);
   $: formIsValid =
     titleValid &&
     tagsValid &&
-    contributionValid &&
+    repoUrlValid &&
     contentValid &&
     imageUrlValid &&
     creatorValid;
@@ -54,7 +54,7 @@
       content: content,
       imageUrl: imageUrl,
       contactEmail: creator,
-      contribution: contribution
+      repoUrl: repoUrl
     };
 
     // posts.push(newPost);    // DOES NOT WORK IN SVELTE
@@ -141,12 +141,12 @@
       value={tags}
       on:input={event => (tags = event.target.value)} />
     <TextInput
-      id="contribution"
-      label="Contribution"
-      valid={contributionValid}
-      validityMessage="Please enter a valid contribution."
-      value={contribution}
-      on:input={event => (contribution = event.target.value)} />
+      id="repoUrl"
+      label="Repository URL"
+      valid={repoUrlValid}
+      validityMessage="Please enter a valid repoUrl."
+      value={repoUrl}
+      on:input={event => (repoUrl = event.target.value)} />
     <TextInput
       id="imageUrl"
       label="Image URL"
@@ -159,7 +159,7 @@
       label="Creator email"
       type="creator"
       valid={creatorValid}
-      validityMessage="Please enter a valid creator contribution."
+      validityMessage="Please enter a valid creator repoUrl."
       value={creator}
       on:input={event => (creator = event.target.value)} />
     <TextInput

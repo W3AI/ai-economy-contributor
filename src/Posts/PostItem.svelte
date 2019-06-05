@@ -10,7 +10,7 @@
   export let tags;
   export let imageUrl;
   export let content;
-  export let contribution;
+  export let repoUrl;
   export let creator;
   export let isFav;
 
@@ -126,7 +126,7 @@
     </h1>
     <h2>{tags}</h2>
     <p>
-      <code>{contribution}</code>
+      <code>{repoUrl}</code>
     </p>
   </header>
   <div class="image">

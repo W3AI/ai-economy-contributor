@@ -72,7 +72,7 @@
         content={post.content}
         imageUrl={post.imageUrl}
         creator={post.contactEmail}
-        contribution={post.contribution}
+        repoUrl={post.repoUrl}
         isFav={post.isFavorite}
         on:showdetails
         on:edit />
