@@ -96,7 +96,6 @@
           console.log(err);
         });
     }
-
     dispatch("save");
   }
 
@@ -125,7 +124,7 @@
   }
 </style>
 
-<Modal title="Edit Service" on:cancel>
+<Modal title="Edit" on:cancel>
   <form on:submit|preventDefault={submitForm}>
     <TextInput
       id="title"
