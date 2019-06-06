@@ -160,14 +160,14 @@
       id="repoUrl"
       label="Repository URL"
       valid={repoUrlValid}
-      validityMessage="Please enter a valid repoUrl."
+      validityMessage="Please enter a valid repository URL."
       value={repoUrl}
       on:input={event => (repoUrl = event.target.value)} />
     <TextInput
       id="imageUrl"
       label="Image URL"
       valid={imageUrlValid}
-      validityMessage="Please enter a valid image url."
+      validityMessage="Please enter a valid image URL."
       value={imageUrl}
       on:input={event => (imageUrl = event.target.value)} />
     <TextInput
@@ -175,7 +175,7 @@
       label="Creator email"
       type="creator"
       valid={creatorValid}
-      validityMessage="Please enter a valid creator repoUrl."
+      validityMessage="Please enter a valid email."
       value={creator}
       on:input={event => (creator = event.target.value)} />
     <TextInput
