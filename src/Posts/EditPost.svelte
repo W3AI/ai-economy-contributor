@@ -11,6 +11,7 @@
 
   let title = "eg: My contribution";
   let tags = "service, git, commit, change";
+  // ToDo: Add url/links comp with a horizontal $ sign => hook/enzime facilitating cont. trade/progress
   let repoUrl = "https://github.com/W3AI/ai-society-server";
   let creator = "agile.team.366@w3ai.org";
   let content = "git commit -m '<message>'";
